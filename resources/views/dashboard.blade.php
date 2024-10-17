@@ -118,7 +118,116 @@
 	<!-- CONTENT -->
 
 
-	<script src="script.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.3/apexcharts.min.js"></script>
+<script src="script.js"></script>
+<script> // ---------- CHARTS ----------
+
+// BAR CHART
+const barChartOptions = {
+series: [
+	{
+	data: [1000, 800, 850, 400, 1500],
+	},
+],
+chart: {
+	type: 'bar',
+	height: 350,
+	toolbar: {
+	show: false,
+	},
+},
+colors: ['#246dec', '#cc3c43', '#367952', '#f5b74f', '#4f35a1'],
+plotOptions: {
+	bar: {
+	distributed: true,
+	borderRadius: 4,
+	horizontal: false,
+	columnWidth: '40%',
+	},
+},
+	dataLabels: {
+	enabled: false,
+},
+	legend: {
+	show: false,
+},
+	xaxis: {
+	categories: ['Plastic', 'Paper', 'Glass', 'Metal', 'Organic'],
+},
+yaxis: {
+	title: {
+	text: 'Count',
+	},
+},
+};
+
+const barChart = new ApexCharts(
+document.querySelector('#bar-chart'),
+barChartOptions
+);
+barChart.render();
+
+// AREA CHART
+const areaChartOptions = {
+series: [
+{
+  name: 'Waste Collected',
+  data: [31, 40, 28, 51, 42, 109, 100, 1,2,3,4,5],
+},
+{
+  name: 'Waste Recycled',
+  data: [11, 32, 45, 32, 34, 52, 41, 1,2,3,4,5],
+},
+{
+  name: 'Uranium Recycled',
+  data: @json($counts),
+},
+],
+chart: {
+height: 350,
+type: 'area',
+toolbar: {
+  show: false,
+},
+},
+colors: ['#4f35a1', '#246dec', 'red'],
+dataLabels: {
+enabled: false,
+},
+stroke: {
+curve: 'smooth',
+},
+labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+markers: {
+size: 0,
+},
+yaxis: [
+{
+  title: {
+	text: 'Waste Collected',
+  },
+},
+{
+  opposite: true,
+  title: {
+	text: 'Waste Recycled',
+  },
+},
+],
+tooltip: {
+shared: true,
+intersect: false,
+},
+};
+
+const areaChart = new ApexCharts(
+document.querySelector('#area-chart'),
+areaChartOptions
+);
+areaChart.render();
+
+</script>
 
 </body>
 </html>

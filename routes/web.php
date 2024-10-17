@@ -16,7 +16,9 @@ Route::get('/dashboard', function () {
     $driver = 58;
     $count = User::count();
 
-    return view('dashboard', compact('driver', 'count'));
+    $counts = [99, 90, 88,1,2,3,4,5,6];
+
+    return view('dashboard', compact('driver', 'count'), ['counts' => $counts]);
 
 })->middleware(['auth', 'verified'])->name('dashboard');
 
